@@ -1,0 +1,178 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Flow Step Service",
+    "description": "Flow Step Service Testing",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+    },
+    {
+      "url": "https://eu-de.appid.cloud.ibm.com"
+    }
+  ],
+  "paths": {
+    "/suppressEmail": {
+      "post": {
+        "description": "Update email preference values",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/suppressEmail_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\r\n    \"email\": \"5553-54410291547@gmail.com\",\r\n    \"source\": \"MKTO_OPT_OUT\",\r\n    \"cmpn\": \"marketo xxx-123\",\r\n    \"origTransid\": \"116326\",\r\n    \"reason\": \"AR\",\r\n    \"preferences\": {\"IBM\":\"S\"},\r\n    \"timestamp\": \"2023-01-02T14:56:14Z\"\r\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\"msg\":\"Successful\"}\n"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+        }
+      ]
+    },
+    "/oauth/v4/bcaefcc9-2d5c-48cd-b934-29d1e6f75e37/token": {
+      "post": {
+        "description": "Auto generated using Swagger Inspector",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bcaefcc92d5c48cdb93429d1e6f75e37_token_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\"grant_type\" : \"client_credentials\"}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "https://eu-de.appid.cloud.ibm.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://eu-de.appid.cloud.ibm.com"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "suppressEmail_preferences": {
+        "type": "object",
+        "properties": {
+          "IBM": {
+            "type": "string"
+          }
+        }
+      },
+      "suppressEmail_body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/suppressEmail_preferences"
+          },
+          "origTransid": {
+            "type": "string"
+          },
+          "cmpn": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      },
+      "bcaefcc92d5c48cdb93429d1e6f75e37_token_body": {
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://eu-de.appid.cloud.ibm.com/oauth/v4/bcaefcc9-2d5c-48cd-b934-29d1e6f75e37/token",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      },
+      "basic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
