@@ -1,26 +1,26 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Flow Service Test",
-    "description" : "Flow Service Testing",
-    "version" : "1.1"
+    "title" : "defaultTitle",
+    "description" : "defaultDescription",
+    "version" : "1.0"
   },
   "servers" : [ {
-    "url" : "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+    "url" : "https://www.aquascbe.com"
   } ],
   "paths" : {
-    "/suppressEmail" : {
+    "/Marketo/api/suppress" : {
       "post" : {
         "description" : "Auto generated using Swagger Inspector",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/suppressEmail_body"
+                "$ref" : "#/components/schemas/api_suppress_body"
               },
               "examples" : {
                 "0" : {
-                  "value" : "{\r\n    \"email\": \"5553-54410291547@gmail.com\",\r\n    \"source\": \"MKTO_OPT_OUT\",\r\n    \"cmpn\": \"marketo xxx-123\",\r\n    \"origTransid\": \"116326\",\r\n    \"reason\": \"AR\",\r\n    \"preferences\": {\"IBM\":\"S\"},\r\n    \"timestamp\": \"2023-01-02T14:56:14Z\"\r\n}"
+                  "value" : "{\r\n    \"email\": \"5553-54410291546vc181@gmail.com\",\r\n    \"source\": \"MKTO_OPT_OUT\",\r\n    \"cmpn\": \"marketo xxx-123\",\r\n    \"origTransid\": \"116326\",\r\n    \"reason\": \"AR\",\r\n    \"preferences\": {\"IBM\":\"S\"},\r\n    \"timestamp\": \"2023-01-02T14:56:14Z\"\r\n}"
                 }
               }
             }
@@ -36,28 +36,25 @@
                 },
                 "examples" : {
                   "0" : {
-                    "value" : "{\"msg\":\"Successful\"}\n"
+                    "value" : "{\"msg\":\"Successful\"}"
                   }
                 }
               }
             }
           }
         },
-        "security" : [ {
-          "oauth2" : [ "write:suppressEmail", "read:suppressEmail" ]
-        } ],
         "servers" : [ {
-          "url" : "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+          "url" : "https://www.aquascbe.com"
         } ]
       },
       "servers" : [ {
-        "url" : "https://idm-sub.968d96a4.public.multi-containers.ibm.com"
+        "url" : "https://www.aquascbe.com"
       } ]
     }
   },
   "components" : {
     "schemas" : {
-      "suppressEmail_preferences" : {
+      "Marketoapisuppress_preferences" : {
         "type" : "object",
         "properties" : {
           "IBM" : {
@@ -65,14 +62,14 @@
           }
         }
       },
-      "suppressEmail_body" : {
+      "api_suppress_body" : {
         "type" : "object",
         "properties" : {
           "reason" : {
             "type" : "string"
           },
           "preferences" : {
-            "$ref" : "#/components/schemas/suppressEmail_preferences"
+            "$ref" : "#/components/schemas/Marketoapisuppress_preferences"
           },
           "origTransid" : {
             "type" : "string"
@@ -96,21 +93,6 @@
         "properties" : {
           "msg" : {
             "type" : "string"
-          }
-        }
-      }
-    },
-    "securitySchemes" : {
-      "basicAuth" : {
-        "type" : "http",
-        "scheme" : "basic"
-      },
-      "oauth2" : {
-        "type" : "oauth2",
-        "flows" : {
-          "clientCredentials" : {
-            "tokenUrl" : "https://eu-de.appid.cloud.ibm.com/oauth/v4/bcaefcc9-2d5c-48cd-b934-29d1e6f75e37/token",
-            "scopes" : { }
           }
         }
       }
