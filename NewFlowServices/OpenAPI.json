@@ -1,0 +1,127 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "New Server Flow Step Settings",
+    "description": "New Server Flow Step Settings Description",
+    "version": "1.0",
+    "x-providerName": "swaggerhub.com"
+  },
+  "servers": [
+    {
+      "url": "https://www.aquascbe.com"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "paths": {
+    "/Marketo/api/suppress": {
+      "post": {
+        "description": "Auto generated using Swagger Inspector",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_suppress_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\r\n    \"email\": \"5553-54410291546vc181@gmail.com\",\r\n    \"source\": \"MKTO_OPT_OUT\",\r\n    \"cmpn\": \"marketo xxx-123\",\r\n    \"origTransid\": \"116326\",\r\n    \"reason\": \"AR\",\r\n    \"preferences\": {\"IBM\":\"S\"},\r\n    \"timestamp\": \"2023-01-02T14:56:14Z\"\r\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\"msg\":\"Successful\"}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": [
+              "write:/Marketo/api/suppress",
+              "read:/Marketo/api/suppress"
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://www.aquascbe.com"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://www.aquascbe.com"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "Marketoapisuppress_preferences": {
+        "type": "object",
+        "properties": {
+          "IBM": {
+            "type": "string"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          }
+        }
+      },
+      "api_suppress_body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/Marketoapisuppress_preferences"
+          },
+          "origTransid": {
+            "type": "string"
+          },
+          "cmpn": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
