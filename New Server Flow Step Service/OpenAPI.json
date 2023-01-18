@@ -1,8 +1,8 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "defaultTitle",
-    "description" : "defaultDescription",
+    "title" : "New Server Flow Step Settings",
+    "description" : "New Server Flow Step Settings Description",
     "version" : "1.0"
   },
   "servers" : [ {
